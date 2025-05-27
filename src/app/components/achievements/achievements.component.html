@@ -31,12 +31,21 @@
               
               <div class="achievement-tags">
                 <p-tag 
-                  *ngFor="let tag of achievement.tags" 
-                  [value]="tag"
-                  [style.background-color]="achievement.color"
-                  class="achievement-tag">
+                    *ngFor="let tag of achievement.tags" 
+                    [value]="tag"
+                    [ngClass]="'achievement-tag ' + achievement.type">
                 </p-tag>
               </div>
+
+              <!--
+               <div class="technologies">
+                    <span 
+                    *ngFor="let tech of exp.technologies"
+                    class="tech-tag">
+                    {{ tech }}
+                    </span>
+                </div>
+              -->
             </div>
           </ng-template>
         </p-timeline>

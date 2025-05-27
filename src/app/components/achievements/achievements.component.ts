@@ -5,6 +5,7 @@ import { TimelineModule } from 'primeng/timeline';
 import { TagModule } from 'primeng/tag';
 
 interface Achievement {
+  type: string;
   category: string;
   description: string;
   icon: string;
@@ -19,16 +20,19 @@ interface Achievement {
   templateUrl: './achievements.component.html',
   styleUrls: ['./achievements.component.scss']
 })
+
 export class AchievementsComponent {
   achievements: Achievement[] = [
     {
+      type: 'sports',
       category: 'Deportivos',
       description: 'Subcampeón Copa Ciudad Pereira 2024. Dos veces campeón de LAF (Liga Antioqueña de Fútbol).',
       icon: 'pi pi-trophy',
-      color: '#FFD700',
+      color: '#FF0000',
       tags: ['Fútbol', 'Competencia', 'Logro']
     },
     {
+      type: 'work',
       category: 'Laborales', 
       description: 'Trabajo colaborativo con la empresa de transporte GruasMotoX. Experiencia en manejo de redes sociales con Paracoser.',
       icon: 'pi pi-briefcase',
@@ -36,6 +40,7 @@ export class AchievementsComponent {
       tags: ['Colaboración', 'Redes Sociales', 'Transporte']
     },
     {
+      type: 'academic',
       category: 'Académicos',
       description: 'Cursos certificados en Excel, Python, Java. Inglés certificado B1.',
       icon: 'pi pi-book',

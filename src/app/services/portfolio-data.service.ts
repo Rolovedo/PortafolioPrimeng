@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
 
-export interface Achievement {
-  id: string;
-  type: 'sports' | 'work' | 'academic';
-  title: string;
-  description: string;
-  icon: string;
-}
-
 export interface Skill {
   name: string;
   level: number;
@@ -38,38 +30,14 @@ export class PortfolioDataService {
   getPersonalInfo() {
     return {
       name: 'Samuel Acevedo',
-      title: 'Desarrollador de Software',
+      title: 'Desarrollador de Software - Deportista',
       description: 'Hola, soy Samuel Acevedo, un apasionado por el fútbol y el desarrollo de software. Me encanta crear proyectos innovadores y mejorar mis habilidades constantemente, tanto físicas como intelectuales.',
       email: 's.acevedo4@utp.edu.co',
       profileImage: 'assets/images/img_portafolio.jpg' // Agrega tu foto aquí
     };
   }
 
-  getAchievements(): Achievement[] {
-    return [
-      {
-        id: '1',
-        type: 'sports',
-        title: 'Deportivos',
-        description: 'Subcampeón Copa Ciudad Pereira 2024. Dos veces campeón de LAF (Liga Antioqueña de Fútbol).',
-        icon: 'fas fa-medal'
-      },
-      {
-        id: '2',
-        type: 'work',
-        title: 'Laborales',
-        description: 'Trabajo colaborativo con la empresa de transporte GruasMotoX. Experiencia en manejo de redes sociales con Paracoser.',
-        icon: 'fas fa-briefcase'
-      },
-      {
-        id: '3',
-        type: 'academic',
-        title: 'Académicos',
-        description: 'Cursos certificados en Excel, Python, Java. Inglés certificado B1.',
-        icon: 'fas fa-graduation-cap'
-      }
-    ];
-  }
+
 
   getSkills(): Skill[] {
     return [
