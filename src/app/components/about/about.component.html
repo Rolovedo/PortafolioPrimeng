@@ -15,7 +15,7 @@
       <div class="profile-image-container">
         <img 
           [src]="profileImage"
-          [alt]="personalInfo?.name || 'Mi foto de perfil'"
+          [alt]="personalInfo.name || 'Mi foto de perfil'"
           class="profile-image"
           (error)="onImageError($event)">
         
@@ -26,11 +26,11 @@
       </div>
 
       <div class="profile-content">
-        <h2 class="profile-name">{{ personalInfo?.name }}</h2>
-        <h3 class="profile-title">{{ personalInfo?.title }}</h3>
+        <h2 class="profile-name">{{ personalInfo.name }}</h2>
+        <h3 class="profile-title">{{ personalInfo.title }}</h3>
         
         <p class="profile-description">
-          {{ personalInfo?.description }}
+          {{ personalInfo.description }}
         </p>
 
         <div class="profile-stats">

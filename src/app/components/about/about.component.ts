@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
-import { PortfolioDataService } from '../../services/portfolio-data.service';
 
 @Component({
   selector: 'app-about',
@@ -14,13 +13,18 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  personalInfo: any;
-  profileImage = 'assets/images/img_portafolio.jpg';
-  
-  constructor(private portfolioService: PortfolioDataService) {}
+  personalInfo = {
+    name: 'Samuel Acevedo',
+    title: 'Desarrollador de Software - Deportista',
+    description: 'Hola, soy Samuel Acevedo, un apasionado por el fútbol y el desarrollo de software. Me encanta crear proyectos innovadores y mejorar mis habilidades constantemente, tanto físicas como intelectuales.',
+    email: 's.acevedo4@utp.edu.co',
+    profileImage: 'assets/images/img_portafolio.jpg'
+  };
+
+  profileImage = this.personalInfo.profileImage;
 
   ngOnInit(): void {
-    this.personalInfo = this.portfolioService.getPersonalInfo();
+    // Ya no se necesita obtener los datos desde un servicio
   }
 
   // Método para manejar el error de imagen
