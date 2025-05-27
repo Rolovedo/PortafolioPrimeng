@@ -1,1 +1,54 @@
-<p>experience works!</p>
+<div class="experience-container">
+  <!-- Experience Card -->
+  <p-card 
+    styleClass="experience-card slide-in"
+    [style]="{'margin-bottom': '2rem'}">
+    
+    <ng-template pTemplate="header">
+      <div class="card-header">
+        <i class="fas fa-briefcase header-icon"></i>
+        <span>Experiencia Profesional</span>
+      </div>
+    </ng-template>
+
+    <div class="timeline">
+      <div 
+        *ngFor="let exp of experiences; let i = index"
+        class="timeline-item"
+        [class.current]="isCurrentJob(exp)">
+        
+        <div class="timeline-marker">
+          <i class="fas fa-building"></i>
+        </div>
+        
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h4 class="job-title">{{ exp.title }}</h4>
+            <span class="company-name">{{ exp.company }}</span>
+            <span 
+              class="job-status" 
+              [class.current-job]="isCurrentJob(exp)">
+              {{ isCurrentJob(exp) ? 'Actual' : 'Finalizado' }}
+            </span>
+          </div>
+          
+          <div class="job-period">
+            <i class="fas fa-calendar"></i>
+            {{ formatDate(exp.startDate) }} - 
+            {{ exp.endDate ? formatDate(exp.endDate) : 'Presente' }}
+          </div>
+          
+          <p class="job-description">{{ exp.description }}</p>
+          
+          <div class="technologies">
+            <span 
+              *ngFor="let tech of exp.technologies"
+              class="tech-tag">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-card>
+</div>
