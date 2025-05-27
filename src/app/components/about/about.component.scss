@@ -1,0 +1,255 @@
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  // Card Header Styling
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 1rem 0;
+
+    .header-icon {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+  }
+
+  // Profile Section
+  .profile-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+
+    .profile-image-container {
+      position: relative;
+      flex-shrink: 0;
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary-color);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 12px 32px rgba(79, 129, 255, 0.3);
+        }
+      }
+
+      .profile-status {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: var(--green-500);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        .status-indicator {
+          width: 6px;
+          height: 6px;
+          background: white;
+          border-radius: 50%;
+          animation: pulse 2s infinite;
+        }
+      }
+    }
+
+    .profile-content {
+      flex: 1;
+
+      .profile-name {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .profile-title {
+        font-size: 1.25rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .profile-description {
+        color: var(--text-color-secondary);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .profile-stats {
+        display: flex;
+        gap: 2rem;
+
+        .stat-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+
+          i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+
+            strong {
+              font-size: 1.25rem;
+              color: var(--text-color);
+            }
+
+            span {
+              font-size: 0.875rem;
+              color: var(--text-color-secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Timeline
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--purple-500));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+
+      .timeline-marker {
+        position: absolute;
+        left: -2.5rem;
+        top: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.875rem;
+        box-shadow: 0 4px 8px rgba(79, 129, 255, 0.3);
+      }
+
+      &.current .timeline-marker {
+        background: var(--green-500);
+        animation: pulse 2s infinite;
+      }
+
+      .timeline-content {
+        background: var(--surface-card);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--surface-border);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 0.5rem;
+          flex-wrap: wrap;
+
+          .job-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0;
+          }
+
+          .company-name {
+            color: var(--primary-color);
+            font-weight: 500;
+          }
+
+          .job-status {
+            background: var(--surface-100);
+            color: var(--text-color-secondary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-left: auto;
+
+            &.current-job {
+              background: var(--green-100);
+              color: var(--green-700);
+            }
+          }
+        }
+
+        .job-period {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--text-color-secondary);
+          font-size: 0.875rem;
+          margin-bottom: 1rem;
+
+          i {
+            color: var(--primary-color);
+          }
+        }
+
+        .job-description {
+          color: var(--text-color-secondary);
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+
+        .technologies {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+
+          .tech-tag {
+            background: var(--primary-50);
+            color: var(--primary-700);
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid var(--primary-200);
+          }
+        }
+      }
+    }
+  }
+
+  // Skills Overview
+  //.skills-overview {
+   // display:
+ // }
+}

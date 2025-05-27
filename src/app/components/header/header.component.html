@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="header-content">
+    <!-- Logo -->
+    <div class="logo" (click)="navigateTo('/about')">
+      <i class="fas fa-code"></i>
+      Mi Portafolio
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+      <button 
+        *ngFor="let item of navItems" 
+        class="nav-link"
+        [class.active]="isActiveRoute(item.route)"
+        (click)="navigateTo(item.route)"
+        pButton
+        [label]="item.label"
+        [icon]="item.icon"
+        styleClass="p-button-text p-button-rounded">
+      </button>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button 
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      pButton
+      [icon]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"
+      styleClass="p-button-rounded p-button-text p-button-plain"
+      pTooltip="Cambiar tema"
+      tooltipPosition="bottom">
+    </button>
+  </div>
+</header>
