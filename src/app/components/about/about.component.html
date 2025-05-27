@@ -15,7 +15,7 @@
     <div class="profile-section">
       <div class="profile-image-container">
         <img 
-          src='../../assets/images/img_portafolio.jpg'
+          [src]="profileImage"
           [alt]="personalInfo?.name || 'Mi foto de perfil'"
           class="profile-image"
           (error)="onImageError($event)">

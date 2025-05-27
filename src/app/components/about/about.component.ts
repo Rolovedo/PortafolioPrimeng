@@ -16,7 +16,7 @@ import { PortfolioDataService, Experience } from '../../services/portfolio-data.
 export class AboutComponent implements OnInit {
   personalInfo: any;
   experiences: Experience[] = [];
-  profileImage = '../../assets/images/img_portafolio.jpg';
+  profileImage = 'assets/images/img_portafolio.jpg';
   
   constructor(private portfolioService: PortfolioDataService) {}
 
@@ -41,6 +41,7 @@ export class AboutComponent implements OnInit {
     const img = event.target as HTMLImageElement;
     if (img) {
       img.src = 'assets/images/img_portafolio.jpg';
+      console.warn('Error cargando la imagen de perfil, usando imagen por defecto');
     }
   }
 }

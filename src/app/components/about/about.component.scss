@@ -1,255 +1,491 @@
-.about-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
+// Fix para que no se vea "tiltado" - aplicar solo al componente
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+}
 
-  // Card Header Styling
-  .card-header {
+// Contenedor principal
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+}
+
+// Animaciones mejoradas y estables
+@keyframes fadeInStable {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInStable {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInStable 0.6s ease-out forwards;
+}
+
+.slide-in {
+  animation: slideInStable 0.6s ease-out forwards;
+}
+
+// Estilos de las tarjetas PrimeNG
+::ng-deep .about-card,
+::ng-deep .experience-card,
+::ng-deep .skills-summary-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 2rem;
+  position: relative;
+  display: block;
+
+  .p-card-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .p-card-body {
+    padding: 0;
+  }
+
+  .p-card-content {
+    padding: 1.5rem;
+  }
+}
+
+// Header de las tarjetas
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+
+  .header-icon {
+    font-size: 1.25rem;
+    color: #3b82f6;
+  }
+}
+
+// Sección del perfil
+.profile-section {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.profile-image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+  transition: transform 0.3s ease;
+  display: block;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.profile-status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #059669;
+
+  .status-indicator {
+    color: #10b981;
+    font-size: 0.6rem;
+    animation: pulseStable 2s infinite;
+  }
+}
+
+@keyframes pulseStable {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.profile-title {
+  font-size: 1.25rem;
+  color: #3b82f6;
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+}
+
+.profile-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 1.5rem;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  i {
+    font-size: 1.25rem;
+    color: #3b82f6;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    
+    strong {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    
+    span {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+  }
+}
+
+// Timeline de experiencia
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.current {
+    .timeline-content {
+      border-left: 3px solid #10b981;
+      background: #f0fdf4;
+    }
+
+    .timeline-marker {
+      background: #10b981;
+      border-color: #10b981;
+
+      i {
+        color: white;
+      }
+    }
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -32px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  i {
+    color: #3b82f6;
+    font-size: 0.9rem;
+  }
+}
+
+.timeline-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #e5e7eb;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateX(5px);
+  }
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.job-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.company-name {
+  color: #3b82f6;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.job-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #f3f4f6;
+  color: #6b7280;
+
+  &.current-job {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+}
+
+.job-period {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+
+  i {
+    color: #3b82f6;
+    font-size: 0.8rem;
+  }
+}
+
+.job-description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+}
+
+// Resumen de habilidades
+.skills-overview {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skill-category {
+  h4 {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
     font-weight: 600;
-    color: var(--primary-color);
-    padding: 1rem 0;
 
-    .header-icon {
-      font-size: 1.5rem;
-      color: var(--primary-color);
+    i {
+      color: #3b82f6;
+      font-size: 1rem;
     }
   }
+}
 
-  // Profile Section
-  .profile-section {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
 
-    .profile-image-container {
-      position: relative;
-      flex-shrink: 0;
+.skill-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
 
-      .profile-image {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--primary-color);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 12px 32px rgba(79, 129, 255, 0.3);
-        }
-      }
-
-      .profile-status {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background: var(--green-500);
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-
-        .status-indicator {
-          width: 6px;
-          height: 6px;
-          background: white;
-          border-radius: 50%;
-          animation: pulse 2s infinite;
-        }
-      }
-    }
-
-    .profile-content {
-      flex: 1;
-
-      .profile-name {
-        font-size: 2rem;
-        font-weight: bold;
-        color: var(--text-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .profile-title {
-        font-size: 1.25rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-weight: 500;
-      }
-
-      .profile-description {
-        color: var(--text-color-secondary);
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-      }
-
-      .profile-stats {
-        display: flex;
-        gap: 2rem;
-
-        .stat-item {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-
-          i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-          }
-
-          div {
-            display: flex;
-            flex-direction: column;
-
-            strong {
-              font-size: 1.25rem;
-              color: var(--text-color);
-            }
-
-            span {
-              font-size: 0.875rem;
-              color: var(--text-color-secondary);
-            }
-          }
-        }
-      }
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
-  // Timeline
+  &.frontend {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+  }
+
+  &.backend {
+    background: #fce7f3;
+    color: #be185d;
+    border: 1px solid #f9a8d4;
+  }
+
+  &.database {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #86efac;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .about-container {
+    padding: 1rem;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+  }
+
+  .profile-stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .stat-item {
+    justify-content: center;
+  }
+
   .timeline {
-    position: relative;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 
     &::before {
-      content: '';
-      position: absolute;
-      left: 1rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--primary-color), var(--purple-500));
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-
-      .timeline-marker {
-        position: absolute;
-        left: -2.5rem;
-        top: 0.5rem;
-        width: 2rem;
-        height: 2rem;
-        background: var(--primary-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 0.875rem;
-        box-shadow: 0 4px 8px rgba(79, 129, 255, 0.3);
-      }
-
-      &.current .timeline-marker {
-        background: var(--green-500);
-        animation: pulse 2s infinite;
-      }
-
-      .timeline-content {
-        background: var(--surface-card);
-        padding: 1.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--surface-border);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .timeline-header {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 0.5rem;
-          flex-wrap: wrap;
-
-          .job-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin: 0;
-          }
-
-          .company-name {
-            color: var(--primary-color);
-            font-weight: 500;
-          }
-
-          .job-status {
-            background: var(--surface-100);
-            color: var(--text-color-secondary);
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            margin-left: auto;
-
-            &.current-job {
-              background: var(--green-100);
-              color: var(--green-700);
-            }
-          }
-        }
-
-        .job-period {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          color: var(--text-color-secondary);
-          font-size: 0.875rem;
-          margin-bottom: 1rem;
-
-          i {
-            color: var(--primary-color);
-          }
-        }
-
-        .job-description {
-          color: var(--text-color-secondary);
-          line-height: 1.6;
-          margin-bottom: 1rem;
-        }
-
-        .technologies {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-
-          .tech-tag {
-            background: var(--primary-50);
-            color: var(--primary-700);
-            padding: 0.25rem 0.75rem;
-            border-radius: 16px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid var(--primary-200);
-          }
-        }
-      }
+      left: 15px;
     }
   }
 
-  // Skills Overview
-  //.skills-overview {
-   // display:
- // }
+  .timeline-marker {
+    left: -27px;
+    width: 30px;
+    height: 30px;
+
+    i {
+      font-size: 0.7rem;
+    }
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .skill-pills {
+    justify-content: center;
+  }
 }
