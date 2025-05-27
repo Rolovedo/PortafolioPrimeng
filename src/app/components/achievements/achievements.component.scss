@@ -1,0 +1,194 @@
+.achievements-section {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  
+  i {
+    margin-right: 0.5rem;
+    color: #FFD700;
+    font-size: 1.3rem;
+  }
+}
+
+.section-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.timeline-container {
+  margin-top: 1rem;
+}
+
+:host ::ng-deep .custom-timeline {
+  .p-timeline-event-content {
+    padding: 0 0 1rem 1.5rem;
+  }
+
+  .p-timeline-event-marker {
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  .p-timeline-event-connector {
+    background-color: #dee2e6;
+    width: 2px;
+  }
+}
+
+.timeline-marker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-icon {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.achievement-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.achievement-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.achievement-status {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #c3e6cb;
+}
+
+.achievement-description {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.achievement-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+:host ::ng-deep .achievement-tag {
+  .p-tag {
+    color: white !important;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .section-stats {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .achievement-card {
+    padding: 1rem;
+  }
+
+  .achievement-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .achievement-status {
+    align-self: flex-start;
+  }
+
+  :host ::ng-deep .custom-timeline {
+    .p-timeline-event-content {
+      padding: 0 0 1rem 1rem;
+    }
+  }
+
+  .timeline-marker {
+    width: 35px;
+    height: 35px;
+  }
+
+  .timeline-icon {
+    font-size: 0.9rem;
+  }
+}

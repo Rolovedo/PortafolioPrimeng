@@ -1,1 +1,44 @@
-<p>achievements works!</p>
+<div class="achievements-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="pi pi-trophy"></i>
+          Logros
+        </h2>
+        <div class="section-stats">
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Categorías</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-container">
+        <p-timeline [value]="achievements" align="left" styleClass="custom-timeline">
+          <ng-template pTemplate="marker" let-achievement let-i="index">
+            <div class="timeline-marker" [style.background-color]="achievement.color">
+              <i [class]="achievement.icon" class="timeline-icon"></i>
+            </div>
+          </ng-template>
+          
+          <ng-template pTemplate="content" let-achievement>
+            <div class="achievement-card">
+              <div class="achievement-header">
+                <h3 class="achievement-title">{{ achievement.category }}</h3>
+                <span class="achievement-status">Logrado</span>
+              </div>
+              
+              <p class="achievement-description">{{ achievement.description }}</p>
+              
+              <div class="achievement-tags">
+                <p-tag 
+                  *ngFor="let tag of achievement.tags" 
+                  [value]="tag"
+                  [style.background-color]="achievement.color"
+                  class="achievement-tag">
+                </p-tag>
+              </div>
+            </div>
+          </ng-template>
+        </p-timeline>
+      </div>
+    </div>

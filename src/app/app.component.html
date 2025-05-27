@@ -1,13 +1,23 @@
-    <div class="layout-wrapper">
-      <app-header></app-header>
+<div class="layout-wrapper">
+  <app-header></app-header>
+  
+  <div class="main-layout">
+    <!-- Contenido principal -->
+    <div class="main-content">
       <app-about></app-about>
       <app-experience></app-experience>
       <app-achievements></app-achievements>
       <app-contact></app-contact>
-      <div class="layout-content">
-        <div class="content-wrapper">
-          <router-outlet></router-outlet>
-        </div>
-        <app-sidebar></app-sidebar>
+      
+      <!-- Router outlet para otras rutas si las tienes -->
+      <div class="router-content">
+        <router-outlet></router-outlet>
       </div>
     </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar-content">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
