@@ -11,7 +11,48 @@
           </div>
         </div>
       </div>
-
+      
+      <!-- NUEVA SECCIÓN DEL CARRUSEL -->
+      <div class="achievements-grid">
+        <!-- CARRUSEL DE IMÁGENES -->
+        <div class="carousel-container">
+          <h3 class="carousel-title">
+            <i class="pi pi-images"></i>
+            Galería de Logros
+          </h3>
+          <div class="carousel-wrapper">
+            <p-carousel 
+              [value]="achievementImages" 
+              [numVisible]="1" 
+              [numScroll]="1" 
+              orientation="vertical" 
+              verticalViewPortHeight="400px" 
+              contentClass="flex items-center"
+              [showIndicators]="true"
+              [showNavigators]="true">
+              
+              <ng-template let-achievement #item>
+                <div class="achievement-carousel-item">
+                  <div class="achievement-image-container">
+                    <img
+                      [src]="achievement.image"
+                      [alt]="achievement.title"
+                      class="achievement-image" />
+                    <p-tag
+                      [value]="achievement.status"
+                      [severity]="getSeverity(achievement.status)"
+                      class="achievement-tag-overlay" />
+                  </div>
+                  <div class="achievement-info">
+                    <h4 class="achievement-carousel-title">{{ achievement.title }}</h4>
+                    <p class="achievement-carousel-description">{{ achievement.description }}</p>
+                    <span class="achievement-carousel-category">{{ achievement.category }}</span>
+                  </div>
+                </div>
+              </ng-template>
+            </p-carousel>
+          </div>
+        </div>
       <div class="timeline-container">
         <p-timeline [value]="achievements" align="left" styleClass="custom-timeline">
           <ng-template pTemplate="marker" let-achievement let-i="index">
@@ -31,23 +72,13 @@
               
               <div class="achievement-tags">
                 <p-tag 
-                    *ngFor="let tag of achievement.tags" 
-                    [value]="tag"
-                    [ngClass]="'achievement-tag ' + achievement.type">
-                </p-tag>
-              </div>
-
-              <!--
-               <div class="technologies">
-                    <span 
-                    *ngFor="let tech of exp.technologies"
-                    class="tech-tag">
-                    {{ tech }}
-                    </span>
-                </div>
-              -->
+                *ngFor="let tag of achievement.tags" 
+                [value]="tag"
+                [ngClass]="'achievement-tag ' + achievement.type">
+              </p-tag>
             </div>
-          </ng-template>
-        </p-timeline>
+          </div>
+        </ng-template>
+      </p-timeline>
       </div>
     </div>

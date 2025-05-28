@@ -152,49 +152,128 @@
   font-size: 0.8rem;
 }
 
-// Social Media
+// Social Media - MEJORADO
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .social-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #f8f9fa;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+
+  // Gradientes específicos para cada red social
+  &:nth-child(1) {
+    // Instagram
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 25%, #fcb045 50%, #e1306c 75%, #833ab4 100%);
+    background-size: 200% 200%;
+    //animation: gradientShift 6s ease infinite;
+  }
+
+  &:nth-child(2) {
+    // Facebook
+    background: linear-gradient(135deg, #1877F2 0%, #42a5f5 25%, #1565c0 50%, #0d47a1 75%, #1877F2 100%);
+    background-size: 200% 200%;
+    //animation: gradientShift 6s ease infinite 1s;
+  }
+
+  &:nth-child(3) {
+    // GitHub
+    background: linear-gradient(135deg, #333333 0%, #555555 25%, #666666 50%, #444444 75%, #333333 100%);
+    background-size: 200% 200%;
+    //animation: gradientShift 6s ease infinite 2s;
+  }
+
+  &:nth-child(4) {
+    // TikTok
+    background: linear-gradient(135deg, #050002 0%, #655d60 25%, #3e2a31 50%, #e5e5e5 75%, #ffffff 100%);
+    background-size: 200% 200%;
+    //animation: gradientShift 6s ease infinite 3s;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+  }
 
   &:hover {
-    background: #e9ecef;
-    transform: translateY(-3px);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+
+    .social-icon {
+      transform: scale(1.1);
+    }
+
+    .social-name {
+      color: rgba(255, 255, 255, 0.95);
+    }
   }
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 
   i {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
   }
 }
 
 .social-name {
-  font-weight: 500;
-  color: #2c3e50;
-  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+// Animación del gradiente
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 // Availability
@@ -283,6 +362,20 @@
 
   .social-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .social-item {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .social-icon {
+    width: 55px;
+    height: 55px;
+
+    i {
+      font-size: 1.4rem;
+    }
   }
 
   .contact-method {
@@ -296,15 +389,6 @@
 
     i {
       font-size: 0.9rem;
-    }
-  }
-
-  .social-icon {
-    width: 45px;
-    height: 45px;
-
-    i {
-      font-size: 1.1rem;
     }
   }
 }

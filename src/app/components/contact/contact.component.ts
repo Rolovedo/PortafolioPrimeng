@@ -23,83 +23,7 @@ interface SocialLink {
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, CardModule, ButtonModule, DividerModule],
-  template: `
-    <div class="contact-section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i class="pi pi-envelope"></i>
-          Contacto
-        </h2>
-        <div class="section-stats">
-          <div class="stat-item">
-            <span class="stat-number">4</span>
-            <span class="stat-label">Redes</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Información de contacto principal -->
-        <div class="contact-info-card">
-          <h3 class="card-title">Información de Contacto</h3>
-          <div class="contact-methods">
-            <div 
-              *ngFor="let method of contactMethods" 
-              class="contact-method"
-              (click)="method.action()">
-              <div class="method-icon" [style.background-color]="method.color">
-                <i [class]="method.icon"></i>
-              </div>
-              <div class="method-content">
-                <span class="method-type">{{ method.type }}</span>
-                <span class="method-value">{{ method.value }}</span>
-              </div>
-              <i class="pi pi-external-link method-arrow"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Redes sociales -->
-        <div class="social-media-card">
-          <h3 class="card-title">Sígueme en Redes Sociales</h3>
-          <p class="card-description">
-            Mantente al día con mis proyectos y actualizaciones profesionales
-          </p>
-          
-          <div class="social-grid">
-            <div 
-              *ngFor="let social of socialLinks" 
-              class="social-item"
-              (click)="openSocialLink(social.url)">
-              <div class="social-icon" [style.background-color]="social.color">
-                <i [class]="social.icon"></i>
-              </div>
-              <span class="social-name">{{ social.platform }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Disponibilidad -->
-        <div class="availability-card">
-          <h3 class="card-title">Disponibilidad</h3>
-          <div class="availability-status">
-            <div class="status-indicator active"></div>
-            <span class="status-text">Disponible para nuevos proyectos</span>
-          </div>
-          <p class="availability-description">
-            Abierto a oportunidades laborales y colaboraciones interesantes.
-            Tiempo de respuesta: 24-48 horas.
-          </p>
-          <p-button 
-            label="Enviar Email" 
-            icon="pi pi-send"
-            class="contact-button"
-            (onClick)="sendEmail()">
-          </p-button>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
@@ -113,7 +37,7 @@ export class ContactComponent {
     },
     {
       type: 'Teléfono',
-      value: '+57 300 123 4567',
+      value: '+57 314 848 47 94',
       icon: 'pi pi-phone',
       color: '#2ecc71',
       action: () => this.callPhone()
@@ -132,25 +56,25 @@ export class ContactComponent {
       platform: 'Instagram',
       icon: 'pi pi-instagram',
       color: '#E4405F',
-      url: 'https://instagram.com'
+      url: 'https://www.instagram.com/ace.__.sam/'
     },
     {
       platform: 'Facebook',
       icon: 'pi pi-facebook',
       color: '#1877F2',
-      url: 'https://facebook.com'
+      url: 'https://www.facebook.com/samuel.acevedogomez/'
     },
     {
       platform: 'GitHub',
       icon: 'pi pi-github',
       color: '#333333',
-      url: 'https://github.com'
+      url: 'https://github.com/Rolovedo'
     },
     {
       platform: 'TikTok',
-      icon: 'pi pi-video',
-      color: '#FF0050',
-      url: 'https://tiktok.com'
+      icon: 'pi pi-tiktok',
+      color: '#050002',
+      url: 'https://www.tiktok.com/@sam_ace04'
     }
   ];
 

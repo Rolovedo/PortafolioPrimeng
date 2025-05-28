@@ -1,1 +1,56 @@
-<p>contact works!</p>
+    <div class="contact-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="pi pi-envelope"></i>
+          Contacto
+        </h2>
+        <div class="section-stats">
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Redes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Información de contacto principal -->
+        <div class="contact-info-card">
+          <h3 class="card-title">Información de Contacto</h3>
+          <div class="contact-methods">
+            <div 
+              *ngFor="let method of contactMethods" 
+              class="contact-method"
+              (click)="method.action()">
+              <div class="method-icon" [style.background-color]="method.color">
+                <i [class]="method.icon"></i>
+              </div>
+              <div class="method-content">
+                <span class="method-type">{{ method.type }}</span>
+                <span class="method-value">{{ method.value }}</span>
+              </div>
+              <i class="pi pi-external-link method-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="social-media-card">
+          <h3 class="card-title">Redes sociales</h3>
+          <p class="card-description">
+            Puedes ver mis redes sociales para mas información sobre mí.
+          </p>
+          
+          <div class="social-grid">
+            <div 
+              *ngFor="let social of socialLinks" 
+              class="social-item"
+              (click)="openSocialLink(social.url)">
+              <div class="social-icon" [style.background-color]="social.color">
+                <i [class]="social.icon"></i>
+              </div>
+              <span class="social-name">{{ social.platform }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
