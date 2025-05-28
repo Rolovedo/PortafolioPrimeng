@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { TimelineModule } from 'primeng/timeline';
 import { TagModule } from 'primeng/tag';
-//Imortaciones del carrusel
+// Importaciones del carrusel
 import { CarouselModule } from 'primeng/carousel'; 
 import { ButtonModule } from 'primeng/button'; 
 
@@ -15,7 +15,7 @@ interface Achievement {
   color: string;
   tags: string[];
 }
-/*
+
 interface AchievementImage {
   id: number;
   title: string;
@@ -23,7 +23,7 @@ interface AchievementImage {
   image: string;
   category: string;
   status: string;
-}*/
+}
 
 @Component({
   selector: 'app-achievements',
@@ -62,28 +62,27 @@ export class AchievementsComponent {
       tags: ['Certificaciones', 'Programación', 'Idiomas']
     }
   ];
-/*
-    achievementImages: AchievementImage[] = [
+
+  achievementImages: AchievementImage[] = [
     {
       id: 1,
       title: 'Copa Ciudad Pereira 2024',
-      description: 'Subcampeonato en torneo local',
-      image: 'assets/images/img_portafolio.jpg',
+      description: 'Subcampeonato en torneo local de fútbol',
+      image: 'assets/images/copa-pereira.jpg',
       category: 'Deportivo',
       status: 'DESTACADO'
     }, 
     {
       id: 2,
       title: 'Certificado Python',
-      description: 'Curso de Python completado',
-      image: 'assets/images/portafolio.png',
+      description: 'Curso completo de programación en Python',
+      image: 'assets/images/cert-python.jpg',
       category: 'Académico',
       status: 'CERTIFICADO'
     }
   ];
-  
 
-    getSeverity(status: string): "success" | "info" | "secondary" | undefined {
+  getSeverity(status: string): "success" | "info" | "secondary" | undefined {
     switch (status) {
       case 'DESTACADO':
         return 'success';
@@ -92,5 +91,5 @@ export class AchievementsComponent {
       default:
         return 'secondary';
     }
-  }*/
+  }
 }
