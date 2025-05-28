@@ -13,15 +13,17 @@
       </div>
       
       <!-- NUEVA SECCIÓN DEL CARRUSEL -->
-      <div class="achievements-grid">
+
+      <!-- <div class="achievements-grid"> -->
         <!-- CARRUSEL DE IMÁGENES -->
-        <div class="carousel-container">
-          <h3 class="carousel-title">
-            <i class="pi pi-images"></i>
-            Galería de Logros
-          </h3>
-          <div class="carousel-wrapper">
-            <p-carousel 
+        <!--
+          <div class="carousel-container">
+            <h3 class="carousel-title">
+              <i class="pi pi-images"></i>
+              Galería de Logros
+            </h3>
+            <div class="carousel-wrapper">
+              <p-carousel 
               [value]="achievementImages" 
               [numVisible]="1" 
               [numScroll]="1" 
@@ -35,13 +37,13 @@
                 <div class="achievement-carousel-item">
                   <div class="achievement-image-container">
                     <img
-                      [src]="achievement.image"
-                      [alt]="achievement.title"
-                      class="achievement-image" />
+                    [src]="achievement.image"
+                    [alt]="achievement.title"
+                    class="achievement-image" />
                     <p-tag
-                      [value]="achievement.status"
-                      [severity]="getSeverity(achievement.status)"
-                      class="achievement-tag-overlay" />
+                    [value]="achievement.status"
+                    [severity]="getSeverity(achievement.status)"
+                    class="achievement-tag-overlay" />
                   </div>
                   <div class="achievement-info">
                     <h4 class="achievement-carousel-title">{{ achievement.title }}</h4>
@@ -53,6 +55,7 @@
             </p-carousel>
           </div>
         </div>
+      -->
       <div class="timeline-container">
         <p-timeline [value]="achievements" align="left" styleClass="custom-timeline">
           <ng-template pTemplate="marker" let-achievement let-i="index">

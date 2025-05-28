@@ -15,7 +15,7 @@ interface Achievement {
   color: string;
   tags: string[];
 }
-
+/*
 interface AchievementImage {
   id: number;
   title: string;
@@ -23,7 +23,7 @@ interface AchievementImage {
   image: string;
   category: string;
   status: string;
-}
+}*/
 
 @Component({
   selector: 'app-achievements',
@@ -62,7 +62,7 @@ export class AchievementsComponent {
       tags: ['Certificaciones', 'Programación', 'Idiomas']
     }
   ];
-
+/*
     achievementImages: AchievementImage[] = [
     {
       id: 1,
@@ -92,5 +92,5 @@ export class AchievementsComponent {
       default:
         return 'secondary';
     }
-  }
+  }*/
 }
