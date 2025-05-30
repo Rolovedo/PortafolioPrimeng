@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 
+// define la estructura de una experiencia laboral
 interface Experience {
   title: string;
   company: string;
@@ -11,6 +12,7 @@ interface Experience {
   endDate?: Date;
 }
 
+// define el componente de experiencia
 @Component({
   selector: 'app-experience',
   standalone: true,
@@ -22,8 +24,10 @@ interface Experience {
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
+  // lista de experiencias laborales
   experiences: Experience[] = [];
 
+  // inicializa el componente cargando datos simulados
   ngOnInit(): void {
     this.experiences = [
       {
@@ -44,6 +48,7 @@ export class ExperienceComponent implements OnInit {
     ];
   }
 
+  // devuelve una fecha en formato legible en español
   formatDate(date: Date): string {
     return date.toLocaleDateString('es-ES', { 
       year: 'numeric', 
@@ -51,6 +56,7 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
+  // determina si una experiencia es el trabajo actual
   isCurrentJob(experience: Experience): boolean {
     return !experience.endDate;
   }

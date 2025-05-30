@@ -13,6 +13,7 @@ import { CardModule } from 'primeng/card';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  // informacion personal que se muestra en la vista
   personalInfo = {
     name: 'Samuel Acevedo',
     title: 'Desarrollador de Software - Deportista',
@@ -21,13 +22,12 @@ export class AboutComponent implements OnInit {
     profileImage: 'assets/images/img_portafolio.jpg'
   };
 
+  // propiedad para acceder directamente a la imagen
   profileImage = this.personalInfo.profileImage;
 
-  ngOnInit(): void {
-    // Ya no se necesita obtener los datos desde un servicio
-  }
+  ngOnInit(): void {}
 
-  // Método para manejar el error de imagen
+  //mtodo para manejar el error de imagen
   onImageError(event: Event): void {
     const img = event.target as HTMLImageElement;
     if (img) {

@@ -1,24 +1,27 @@
 <div class="achievements-section">
+  <!-- seccion principal de logros -->
   <div class="section-header">
+    <!-- encabezado de la seccion -->
     <h2 class="section-title">
       <i class="pi pi-trophy"></i>
-      Logros
+      logros
     </h2>
     <div class="section-stats">
+      <!-- resumen estadistico de logros -->
       <div class="stat-item">
         <span class="stat-number">3</span>
-        <span class="stat-label">Categorías</span>
+        <span class="stat-label">categorias</span>
       </div>
     </div>
   </div>
   
-  <!-- CONTENIDO PRINCIPAL CON CARRUSEL Y TIMELINE -->
+  <!-- contenido principal con carrusel y linea de tiempo -->
   <div class="achievements-grid">
-    <!-- CARRUSEL DE IMÁGENES -->
+    <!-- carrusel de imagenes -->
     <div class="carousel-container">
       <h3 class="carousel-title">
         <i class="pi pi-images"></i>
-        Galería de Logros
+        galeria de logros
       </h3>
       <div class="carousel-wrapper">
         <p-carousel 
@@ -33,6 +36,7 @@
           [circular]="true"
           [autoplayInterval]="4000">
           
+          <!-- plantilla del carrusel por cada logro -->
           <ng-template let-achievement pTemplate="item">
             <div class="achievement-carousel-item">
               <div class="achievement-image-container">
@@ -57,29 +61,32 @@
       </div>
     </div>
 
-    <!-- TIMELINE DE LOGROS -->
+    <!-- linea de tiempo de logros -->
     <div class="timeline-container">
       <h3 class="timeline-title">
         <i class="pi pi-clock"></i>
-        Cronología de Logros
+        cronologia de logros
       </h3>
       <div class="timeline-content">
         <p-timeline [value]="achievements" align="left" styleClass="custom-timeline">
+          <!-- marcador personalizado de cada punto en la linea de tiempo -->
           <ng-template pTemplate="marker" let-achievement let-i="index">
             <div class="timeline-marker" [style.background-color]="achievement.color">
               <i [class]="achievement.icon" class="timeline-icon"></i>
             </div>
           </ng-template>
           
+          <!-- contenido de cada evento en la linea de tiempo -->
           <ng-template pTemplate="content" let-achievement>
             <div class="achievement-card">
               <div class="achievement-header">
                 <h3 class="achievement-title">{{ achievement.category }}</h3>
-                <span class="achievement-status">Logrado</span>
+                <span class="achievement-status">logrado</span>
               </div>
               
               <p class="achievement-description">{{ achievement.description }}</p>
               
+              <!-- etiquetas asociadas al logro -->
               <div class="achievement-tags">
                 <p-tag 
                   *ngFor="let tag of achievement.tags" 

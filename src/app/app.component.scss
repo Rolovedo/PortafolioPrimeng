@@ -76,7 +76,7 @@
 .router-content {
   margin-top: 2rem;
   
-  // Solo mostrar si hay contenido del router
+  // Solo muestra si hay contenido del router
   &:empty {
     display: none;
   }

@@ -1,17 +1,19 @@
 <div class="about-container">
-  <!-- Personal Info Card -->
+  <!-- tarjeta que contiene la seccion sobre mi -->
   <p-card 
     styleClass="about-card fade-in"
     [style]="{'margin-bottom': '2rem'}">
     
+    <!-- encabezado de la tarjeta con icono y titulo -->
     <ng-template pTemplate="header">
       <div class="card-header">
         <i class="fas fa-user header-icon"></i>
-        <span>Sobre Mí</span>
+        <span>Sobre Mi</span>
       </div>
     </ng-template>
 
     <div class="profile-section">
+      <!-- contenedor de la imagen de perfil -->
       <div class="profile-image-container">
         <img 
           [src]="profileImage"
@@ -19,20 +21,26 @@
           class="profile-image"
           (error)="onImageError($event)">
         
+        <!-- indicador de disponibilidad -->
         <div class="profile-status">
           <i class="fas fa-circle status-indicator"></i>
           <span>Disponible</span>
         </div>
       </div>
 
+      <!-- contenedor del contenido textual del perfil -->
       <div class="profile-content">
+        <!-- nombre de la persona -->
         <h2 class="profile-name">{{ personalInfo.name }}</h2>
+        <!-- titulo o rol profesional -->
         <h3 class="profile-title">{{ personalInfo.title }}</h3>
         
+        <!-- descripcion breve del perfil -->
         <p class="profile-description">
           {{ personalInfo.description }}
         </p>
 
+        <!-- estadisticas destacadas del perfil -->
         <div class="profile-stats">
           <div class="stat-item">
             <i class="fas fa-code"></i>

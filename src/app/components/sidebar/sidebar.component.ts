@@ -16,8 +16,6 @@ export class SidebarComponent implements OnInit {
   skillsData: any;
   
   ngOnInit(): void {
-    // Aquí puedes obtener los datos de habilidades del servicio
-    // o definirlos directamente como están ahora
     this.skillsData = this.getSkillsData();
   }
 

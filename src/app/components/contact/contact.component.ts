@@ -4,6 +4,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 
+// define la estructura de un metodo de contacto
 interface ContactMethod {
   type: string;
   value: string;
@@ -12,6 +13,7 @@ interface ContactMethod {
   action: () => void;
 }
 
+// define la estructura de un enlace social
 interface SocialLink {
   platform: string;
   icon: string;
@@ -19,6 +21,7 @@ interface SocialLink {
   url: string;
 }
 
+// declara el componente contact como standalone y especifica sus dependencias
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -27,6 +30,7 @@ interface SocialLink {
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  // lista de metodos de contacto disponibles
   contactMethods: ContactMethod[] = [
     {
       type: 'Email',
@@ -37,7 +41,7 @@ export class ContactComponent {
     },
     {
       type: 'Teléfono',
-      value: '+57 314 848 47 94',
+      value: '+57 333 75 58',
       icon: 'pi pi-phone',
       color: '#2ecc71',
       action: () => this.callPhone()
@@ -51,6 +55,7 @@ export class ContactComponent {
     }
   ];
 
+  // lista de redes sociales disponibles
   socialLinks: SocialLink[] = [
     {
       platform: 'Instagram',
@@ -78,18 +83,22 @@ export class ContactComponent {
     }
   ];
 
+  // abre el cliente de correo con el email predefinido
   sendEmail() {
     window.location.href = 'mailto:s.acevedo4@utp.edu.co?subject=Contacto Profesional';
   }
 
+  // le da la opcion de elegir al usuario donde usar el telefono
   callPhone() {
-    window.location.href = 'tel:+573001234567';
+    window.location.href = 'tel:+5733333333';
   }
 
+  // abre ubicacion en google maps en una nueva pestaña
   openLocation() {
     window.open('https://maps.google.com/?q=Pereira,Risaralda,Colombia', '_blank');
   }
 
+  // abre enlace de red social en una nueva pestaña
   openSocialLink(url: string) {
     window.open(url, '_blank');
   }

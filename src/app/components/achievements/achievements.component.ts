@@ -7,6 +7,7 @@ import { TagModule } from 'primeng/tag';
 import { CarouselModule } from 'primeng/carousel'; 
 import { ButtonModule } from 'primeng/button'; 
 
+// interfaz para representar un logro
 interface Achievement {
   type: string;
   category: string;
@@ -16,6 +17,7 @@ interface Achievement {
   tags: string[];
 }
 
+// interfaz para representar una imagen de logro
 interface AchievementImage {
   id: number;
   title: string;
@@ -36,6 +38,7 @@ interface AchievementImage {
 })
 
 export class AchievementsComponent {
+  // lista de logros con su informacion detallada
   achievements: Achievement[] = [
     {
       type: 'sports',
@@ -63,6 +66,7 @@ export class AchievementsComponent {
     }
   ];
 
+  // lista de imagenes asociadas a logros
   achievementImages: AchievementImage[] = [
     {
       id: 1,
@@ -82,6 +86,7 @@ export class AchievementsComponent {
     }
   ];
 
+  // metodo que devuelve el color de la etiqueta segun el estado
   getSeverity(status: string): "success" | "info" | "secondary" | undefined {
     switch (status) {
       case 'DESTACADO':
