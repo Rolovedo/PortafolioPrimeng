@@ -1,22 +1,22 @@
-// Fix para que no se vea "tiltado" - aplicar solo al componente
+// correccion para que el componente no se vea inclinado
 :host {
   display: block;
   width: 100%;
   overflow-x: hidden;
 }
 
-// Contenedor principal
+// contenedor principal de la seccion about
 .about-container {
   width: 100%;
-  padding: 0; // Removemos el padding ya que el contenedor padre lo maneja
-  background: transparent; // Cambiamos a transparente
-  min-height: auto; // Removemos el min-height
+  padding: 0; // se elimina el padding porque lo gestiona el contenedor padre
+  background: transparent; // fondo transparente
+  min-height: auto; // sin altura minima
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 2rem; // Agregamos margen inferior
+  margin-bottom: 2rem; // margen inferior agregado
 }
 
-// Animaciones mejoradas y estables
+// animacion para entrada suave del contenido
 @keyframes fadeInStable {
   from {
     opacity: 0;
@@ -28,18 +28,19 @@
   }
 }
 
+// clase que aplica la animacion de entrada
 .fade-in {
   animation: fadeInStable 0.6s ease-out forwards;
 }
 
-// Estilos de las tarjetas PrimeNG
+// estilos personalizados para tarjetas primeng
 ::ng-deep .about-card {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
   overflow: hidden;
   background: white;
-  margin-bottom: 0; // Removemos el margen inferior de la tarjeta
+  margin-bottom: 0; // se elimina el margen inferior
   position: relative;
   display: block;
 
@@ -58,7 +59,7 @@
   }
 }
 
-// Header de las tarjetas
+// encabezado de la tarjeta con icono y texto
 .card-header {
   display: flex;
   align-items: center;
@@ -73,7 +74,7 @@
   }
 }
 
-// Sección del perfil
+// seccion que contiene la imagen y el contenido del perfil
 .profile-section {
   display: flex;
   gap: 2rem;
@@ -86,11 +87,13 @@
   }
 }
 
+// contenedor de la imagen de perfil
 .profile-image-container {
   position: relative;
   flex-shrink: 0;
 }
 
+// imagen de perfil con estilo redondeado
 .profile-image {
   width: 180px;
   height: 180px;
@@ -106,6 +109,7 @@
   }
 }
 
+// indicador de estado disponible en la imagen de perfil
 .profile-status {
   position: absolute;
   bottom: 10px;
@@ -128,6 +132,7 @@
   }
 }
 
+// animacion de pulso para el indicador de estado
 @keyframes pulseStable {
   0%, 100% {
     opacity: 1;
@@ -137,10 +142,12 @@
   }
 }
 
+// contenedor del contenido textual del perfil
 .profile-content {
   flex: 1;
 }
 
+// nombre del perfil
 .profile-name {
   font-size: 2.25rem;
   font-weight: 700;
@@ -149,6 +156,7 @@
   line-height: 1.2;
 }
 
+// titulo o rol profesional
 .profile-title {
   font-size: 1.25rem;
   color: #3b82f6;
@@ -156,6 +164,7 @@
   font-weight: 500;
 }
 
+// descripcion breve del perfil
 .profile-description {
   font-size: 1rem;
   line-height: 1.6;
@@ -163,6 +172,7 @@
   margin-bottom: 2rem;
 }
 
+// seccion de estadisticas del perfil
 .profile-stats {
   display: flex;
   gap: 1.5rem;
@@ -173,6 +183,7 @@
   }
 }
 
+// cada estadistica individual del perfil
 .stat-item {
   display: flex;
   align-items: center;
@@ -211,7 +222,7 @@
   }
 }
 
-// Responsive design
+// ajustes responsivos para pantallas pequenas
 @media (max-width: 768px) {
   .about-container {
     margin-bottom: 1rem;

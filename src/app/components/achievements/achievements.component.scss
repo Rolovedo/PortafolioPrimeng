@@ -1,8 +1,10 @@
+// contenedor principal de la sección de logros
 .achievements-section {
   margin: 2rem 0;
-  padding: 0 1rem;
+  padding: 0.5rem;
 }
 
+// encabezado de la sección con título y estadísticas
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -12,6 +14,7 @@
   border-bottom: 2px solid #e9ecef;
 }
 
+// estilo del título principal de la sección
 .section-title {
   display: flex;
   align-items: center;
@@ -19,7 +22,7 @@
   font-weight: 600;
   color: #2c3e50;
   margin: 0;
-  
+
   i {
     margin-right: 0.5rem;
     color: #FFD700;
@@ -27,11 +30,13 @@
   }
 }
 
+// contenedor de estadísticas superiores
 .section-stats {
   display: flex;
   gap: 1.5rem;
 }
 
+// ítem individual de estadísticas
 .stat-item {
   display: flex;
   flex-direction: column;
@@ -39,119 +44,446 @@
   text-align: center;
 }
 
+// número destacado de la estadística
 .stat-number {
   font-size: 1.5rem;
   font-weight: bold;
   color: #3498db;
 }
 
+// etiqueta de descripción de la estadística
 .stat-label {
   font-size: 0.875rem;
   color: #6c757d;
   margin-top: 0.25rem;
 }
 
-.timeline-container {
+// grilla para mostrar las tarjetas de logros
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
   margin-top: 1rem;
+  align-items: stretch;
 }
 
+// contenedor general del carrusel
+.carousel-container {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+}
+
+// encabezado del carrusel
+.carousel-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  flex-shrink: 0;
+
+  i {
+    margin-right: 0.5rem;
+    color: #3498db;
+    font-size: 1.1rem;
+  }
+}
+
+// área que contiene el carrusel
+.carousel-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+}
+
+// estilos personalizados para el componente primeng carousel
+:host ::ng-deep {
+  .p-carousel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .p-carousel-content {
+      border-radius: 12px;
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p-carousel-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p-carousel-items-content {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .p-carousel-items-container {
+      height: 100%;
+    }
+
+    .p-carousel-item {
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .p-carousel-prev,
+    .p-carousel-next {
+      background: rgba(52, 152, 219, 0.9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(52, 152, 219, 1);
+        transform: scale(1.1);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+      }
+    }
+
+    .p-carousel-indicators {
+      padding: 1rem 0 0 0;
+      flex-shrink: 0;
+
+      .p-carousel-indicator {
+        button {
+          background: #dee2e6;
+          border: none;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #3498db;
+            transform: scale(1.2);
+          }
+        }
+
+        &.p-highlight button {
+          background: #3498db;
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}
+
+// ítem individual del carrusel
+.achievement-carousel-item {
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// contenedor de la imagen de logro
+.achievement-image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// imagen del logro en el carrusel
+.achievement-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// etiqueta de estado superpuesta a la imagen
+.achievement-tag-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+
+// información textual del logro
+.achievement-info {
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+// título del logro en el carrusel
+.achievement-carousel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+// descripción del logro en el carrusel
+.achievement-carousel-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.4;
+  margin: 0 0 0.75rem 0;
+}
+
+// categoría visual del logro
+.achievement-carousel-category {
+  display: inline-block;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+// contenedor del timeline con misma altura del carrusel
+.timeline-container {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+}
+
+// título del timeline
+.timeline-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 1.5rem 0;
+  flex-shrink: 0;
+
+  i {
+    margin-right: 0.5rem;
+    color: #3498db;
+    font-size: 1.1rem;
+  }
+}
+
+// contenido desplazable del timeline
+.timeline-content {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+// estilos personalizados del timeline de primeng
 :host ::ng-deep .custom-timeline {
+  height: 100%;
+  position: relative;
+
+  .p-timeline-event {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
   .p-timeline-event-content {
-    padding: 0 0 1rem 1.5rem;
+    padding: 0 0 1.5rem 3rem;
+    flex: 1;
   }
 
   .p-timeline-event-marker {
     border: none;
     padding: 0;
     background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
   }
 
   .p-timeline-event-connector {
     background-color: #dee2e6;
-    width: 2px;
+    width: 3px;
+    position: absolute;
+    left: 24px;
+    top: 50px;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .p-timeline-event:last-child .p-timeline-event-connector {
+    display: none;
   }
 }
 
+// marcador del timeline (círculo con icono)
 .timeline-marker {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 3;
 }
 
+// icono dentro del marcador del timeline
 .timeline-icon {
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
+// tarjeta de logro individual
 .achievement-card {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #e9ecef;
   transition: all 0.3s ease;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   &:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
 }
 
+// encabezado de la tarjeta de logro
 .achievement-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
+// título de la tarjeta
 .achievement-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: #2c3e50;
   margin: 0;
+  line-height: 1.2;
 }
 
+// estado del logro (etiqueta)
 .achievement-status {
   background: #d4edda;
   color: #155724;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
   border: 1px solid #c3e6cb;
 }
 
+// descripción de la tarjeta de logro
 .achievement-description {
   color: #6c757d;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 1rem;
   font-size: 0.95rem;
+  flex: 1;
+  min-height: 2.5rem;
 }
 
+// contenedor de etiquetas de logro
 .achievement-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-:host ::ng-deep .achievement-tag {
-  .p-tag {
-    color: white !important;
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-weight: 500;
+// estilo general de las etiquetas
+.achievement-tag {
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   }
 }
 
-// Responsive Design
+// colores por tipo de logro
+.achievement-tag {
+  &.sports {
+    background: #ff0000;
+    color: #ffffff;
+
+    &:hover {
+      background: #d00000;
+    }
+  }
+
+  &.work {
+    background: #4CAF50;
+    color: white;
+
+    &:hover {
+      background: #45a049;
+    }
+  }
+
+  &.academic {
+    background: #2196F3;
+    color: white;
+
+    &:hover {
+      background: #1976D2;
+    }
+  }
+}
+
+// estilos responsivos para pantallas pequeñas
 @media (max-width: 768px) {
   .section-header {
     flex-direction: column;
@@ -162,6 +494,26 @@
   .section-stats {
     width: 100%;
     justify-content: space-around;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .carousel-container,
+  .timeline-container {
+    height: auto;
+    min-height: 400px;
+    padding: 1rem;
+  }
+
+  .carousel-wrapper {
+    height: auto;
+  }
+
+  .achievement-image {
+    height: 200px;
   }
 
   .achievement-card {
@@ -177,18 +529,32 @@
     align-self: flex-start;
   }
 
+  .achievement-title {
+    font-size: 1rem;
+  }
+
   :host ::ng-deep .custom-timeline {
     .p-timeline-event-content {
-      padding: 0 0 1rem 1rem;
+      padding: 0 0 1rem 2.5rem;
+    }
+
+    .p-timeline-event-connector {
+      left: 20px;
     }
   }
 
   .timeline-marker {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid white;
   }
 
   .timeline-icon {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .carousel-title,
+  .timeline-title {
+    font-size: 1.1rem;
   }
 }

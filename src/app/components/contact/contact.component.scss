@@ -4,6 +4,7 @@
 }
 
 .section-header {
+  // contenedor del encabezado de la seccion con linea inferior
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +14,7 @@
 }
 
 .section-title {
+  // titulo principal con icono
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -21,6 +23,7 @@
   margin: 0;
   
   i {
+    // icono dentro del titulo
     margin-right: 0.5rem;
     color: #3498db;
     font-size: 1.3rem;
@@ -28,11 +31,13 @@
 }
 
 .section-stats {
+  // contenedor para estadisticas
   display: flex;
   gap: 1.5rem;
 }
 
 .stat-item {
+  // cada item de estadistica
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,18 +45,21 @@
 }
 
 .stat-number {
+  // valor numerico destacado
   font-size: 1.5rem;
   font-weight: bold;
   color: #3498db;
 }
 
 .stat-label {
+  // etiqueta debajo del numero
   font-size: 0.875rem;
   color: #6c757d;
   margin-top: 0.25rem;
 }
 
 .contact-grid {
+  // estructura de dos columnas para las tarjetas
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -61,6 +69,7 @@
 .contact-info-card,
 .social-media-card,
 .availability-card {
+  // tarjetas con sombra y borde
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -69,16 +78,19 @@
   transition: all 0.3s ease;
 
   &:hover {
+    // efecto de sombra y desplazamiento al pasar el cursor
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
 }
 
 .availability-card {
+  // tarjeta de disponibilidad ocupa ancho completo
   grid-column: 1 / -1;
 }
 
 .card-title {
+  // titulo de tarjeta
   font-size: 1.1rem;
   font-weight: 600;
   color: #2c3e50;
@@ -86,20 +98,23 @@
 }
 
 .card-description {
+  // descripcion debajo del titulo
   color: #6c757d;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
 
-// Contact Methods
+// contact methods
 .contact-methods {
+  // contenedor de metodos de contacto
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 .contact-method {
+  // cada metodo de contacto como una tarjeta clickeable
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -115,6 +130,7 @@
 }
 
 .method-icon {
+  // icono circular para cada metodo
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -130,81 +146,168 @@
 }
 
 .method-content {
+  // contenedor del tipo y valor de metodo
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .method-type {
+  // tipo de metodo (ej: email)
   font-weight: 600;
   color: #2c3e50;
   font-size: 0.9rem;
 }
 
 .method-value {
+  // valor del metodo (ej: user@mail.com)
   color: #6c757d;
   font-size: 0.85rem;
   margin-top: 0.2rem;
 }
 
 .method-arrow {
+  // icono de flecha
   color: #6c757d;
   font-size: 0.8rem;
 }
 
-// Social Media
+// social media - mejorado
 .social-grid {
+  // grid de redes sociales
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .social-item {
+  // tarjeta de red social con efecto animado
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #f8f9fa;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+
+  // gradientes especificos para cada red social
+  &:nth-child(1) {
+    // instagram
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 25%, #fcb045 50%, #e1306c 75%, #833ab4 100%);
+    background-size: 200% 200%;
+  }
+
+  &:nth-child(2) {
+    // facebook
+    background: linear-gradient(135deg, #1877F2 0%, #42a5f5 25%, #1565c0 50%, #0d47a1 75%, #1877F2 100%);
+    background-size: 200% 200%;
+  }
+
+  &:nth-child(3) {
+    // github
+    background: linear-gradient(135deg, #333333 0%, #555555 25%, #666666 50%, #444444 75%, #333333 100%);
+    background-size: 200% 200%;
+  }
+
+  &:nth-child(4) {
+    // tiktok
+    background: linear-gradient(135deg, #050002 0%, #655d60 25%, #3e2a31 50%, #e5e5e5 75%, #ffffff 100%);
+    background-size: 200% 200%;
+  }
+
+  &::before {
+    // capa semitransparente al hacer hover
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+  }
 
   &:hover {
-    background: #e9ecef;
-    transform: translateY(-3px);
+    // efecto al pasar el cursor sobre la red social
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+
+    .social-icon {
+      transform: scale(1.1);
+    }
+
+    .social-name {
+      color: rgba(255, 255, 255, 0.95);
+    }
   }
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  // icono circular con fondo borroso
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 
   i {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
   }
 }
 
 .social-name {
-  font-weight: 500;
-  color: #2c3e50;
-  font-size: 0.9rem;
+  // nombre de la red social
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-// Availability
+// animacion del gradiente
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// availability
 .availability-status {
+  // fila de estado de disponibilidad
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
 .status-indicator {
+  // circulo de estado con colores segun disponibilidad
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -227,11 +330,13 @@
 }
 
 .status-text {
+  // texto del estado
   font-weight: 600;
   color: #2ecc71;
 }
 
 .availability-description {
+  // descripcion adicional sobre disponibilidad
   color: #6c757d;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -239,6 +344,7 @@
 
 :host ::ng-deep .contact-button {
   .p-button {
+    // estilo personalizado para el boton de contacto
     background: linear-gradient(135deg, #3498db, #2980b9);
     border: none;
     padding: 0.75rem 1.5rem;
@@ -252,7 +358,7 @@
   }
 }
 
-// Responsive Design
+// responsive design
 @media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -283,6 +389,20 @@
 
   .social-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .social-item {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .social-icon {
+    width: 55px;
+    height: 55px;
+
+    i {
+      font-size: 1.4rem;
+    }
   }
 
   .contact-method {
@@ -296,15 +416,6 @@
 
     i {
       font-size: 0.9rem;
-    }
-  }
-
-  .social-icon {
-    width: 45px;
-    height: 45px;
-
-    i {
-      font-size: 1.1rem;
     }
   }
 }

@@ -1,6 +1,8 @@
+// estilo principal del encabezado fijo en la parte superior
 .header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--purple-500) 100%);
-  color: black;
+  background: black;
+  // background alternativo con gradiente
+  color: rgb(251, 251, 251);
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -8,6 +10,7 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
+  // contenido interno del encabezado
   .header-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -17,6 +20,7 @@
     align-items: center;
     gap: 2rem;
 
+    // seccion del logotipo
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
@@ -26,6 +30,7 @@
       gap: 0.5rem;
       transition: all 0.3s ease;
 
+      // efecto al pasar el cursor
       &:hover {
         transform: scale(1.05);
       }
@@ -35,18 +40,21 @@
       }
     }
 
+    // contenedor de navegacion
     .nav {
       display: flex;
       gap: 0.5rem;
       flex: 1;
       justify-content: center;
 
+      // estilos de enlaces de navegacion
       .nav-link {
         color: white !important;
         border: 2px solid transparent !important;
         transition: all 0.3s ease !important;
         font-weight: 500 !important;
 
+        // efecto al pasar el cursor
         &:hover {
           background: rgba(255, 255, 255, 0.1) !important;
           backdrop-filter: blur(10px);
@@ -54,6 +62,7 @@
           transform: translateY(-2px);
         }
 
+        // estado activo
         &.active {
           background: rgba(255, 255, 255, 0.2) !important;
           backdrop-filter: blur(10px);
@@ -63,11 +72,13 @@
       }
     }
 
+    // icono de cambio de tema
     .theme-toggle {
       color: white !important;
       font-size: 1.2rem !important;
       transition: all 0.3s ease !important;
 
+      // efecto al pasar el cursor
       &:hover {
         background: rgba(255, 255, 255, 0.1) !important;
         transform: rotate(15deg) scale(1.1);
@@ -75,7 +86,7 @@
     }
   }
 
-  // Responsive
+  // ajustes para pantallas medianas
   @media (max-width: 768px) {
     .header-content {
       flex-direction: column;
@@ -94,6 +105,7 @@
     }
   }
 
+  // ajustes para pantallas pequeñas
   @media (max-width: 480px) {
     .header-content {
       .logo {
@@ -114,7 +126,7 @@
   }
 }
 
-// Dark theme adjustments
+// estilos adicionales para modo oscuro
 :host-context(.dark-theme) {
   .header {
     background: linear-gradient(135deg, var(--primary-700) 0%, var(--purple-700) 100%);

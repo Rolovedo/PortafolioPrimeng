@@ -22,31 +22,61 @@
 
 .main-content {
   flex: 1;
-  max-width: calc(100% - 350px);
+  max-width: calc(100% - 400px); // Aumentado para dar más espacio al sidebar
+  
+  // Aplicar el fondo blanco aquí para que abarque todo el contenido
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  padding: 2rem;
   
   @media (max-width: 1024px) {
     max-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
 }
 
 .sidebar-content {
-  width: 320px;
+  width: 370px; // Aumentado a 370px para más espacio
   flex-shrink: 0;
   position: sticky;
   top: 2rem;
   height: fit-content;
+  overflow: visible; // Asegurar que el contenido no se corte
+  
+  // Aplicar el mismo fondo blanco que el contenido principal
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem; // Mantener el padding
+  
+  @media (max-width: 1200px) {
+    width: 340px; // Ancho intermedio para pantallas medianas
+    padding: 1.25rem;
+  }
   
   @media (max-width: 1024px) {
     width: 100%;
     position: static;
     order: 1; // Coloca el sidebar abajo en móvil
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
 }
 
 .router-content {
   margin-top: 2rem;
   
-  // Solo mostrar si hay contenido del router
+  // Solo muestra si hay contenido del router
   &:empty {
     display: none;
   }
